@@ -21,3 +21,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 css klasörün içine style.css file oluştur
 base.html de <link rel="stylesheet" href="{% static 'css/style.css' %}">
 eklenir
+
+# user viewde:
+from django.contrib.auth.forms import UserCreationForm
+
+
+def register(request):
+    form = UserCreationForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'users/register.html', context)
